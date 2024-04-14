@@ -1,3 +1,9 @@
+from operacoes import Operacoes
+from sistema import Sistema
+
+sistema = Sistema()
+sistema.limpar_terminal()
+
 menu = """
 
 [d] Depositar
@@ -17,12 +23,17 @@ conta = {
 
 while True:
 
-    operacao = input(menu).upper()
+    escolha_operacao = input(menu).upper()
 
-    match operacao:
+    match escolha_operacao:
+
         case "D":
+            sistema.limpar_terminal()
             print("Depósito")
-            print(f"Novo saldo R$ {conta['saldo']}")
+            operacao_deposito = Operacoes(escolha_operacao, conta)
+            conta["saldo"] = operacao_deposito.dados_conta["saldo"]
+            print(f"\nNovo saldo R$ {conta['saldo']}")
+            
         case "S":
             print("Saque")
             print()
