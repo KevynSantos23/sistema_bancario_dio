@@ -7,23 +7,28 @@ menu = """
 
 => """
 
-saldo = 0
-limite = 500
-extrato = ""
-numero_saques = 0
-LIMITE_SAQUES = 3
+conta = {
+    'saldo': 0.0,
+    'limite': 500.0,
+    'extrato': "",
+    'numero_saques': 0,
+    'LIMITE_SAQUES': 3
+}
 
 while True:
 
-    opcao = input(menu).upper()
+    operacao = input(menu).upper()
 
-    match opcao:
+    match operacao:
         case "D":
             print("Depósito")
+            print(f"Novo saldo R$ {conta['saldo']}")
         case "S":
             print("Saque")
+            print()
         case "E":
             print("Extrato")
+            print()
         case "Q":
             print("Sair")
             break
