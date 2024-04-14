@@ -22,7 +22,9 @@ class Operacoes ():
                     sistema.limpar_terminal()
                     self.dados_conta['saldo'] += valor
                     print("\nDepósito Realizado")
+                    print(f"\nNovo saldo: R$ {self.dados_conta['saldo']}")
 
                 else:
                     print("\nValor Inválido")
+                    print(f"\nSeu saldo é: R$ {self.dados_conta['saldo']}")
                     

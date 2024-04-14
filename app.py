@@ -32,7 +32,16 @@ while True:
             print("Depósito")
             operacao_deposito = Operacoes(escolha_operacao, conta)
             conta["saldo"] = operacao_deposito.dados_conta["saldo"]
-            print(f"\nNovo saldo R$ {conta['saldo']}")
+
+            continuar_operando = input("""\nRealizar outra operação? [s]- Sim | [n] - Não\n""").upper()
+            
+            match continuar_operando:
+                case "S":
+                    sistema.limpar_terminal()
+                    continue
+                case "N":
+                    sistema.limpar_terminal()
+                    break
             
         case "S":
             print("Saque")
