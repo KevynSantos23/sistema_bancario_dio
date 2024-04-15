@@ -1,5 +1,6 @@
-from operacoes import Operacoes
-from sistema import Sistema
+from classes.operacoes import Operacoes
+from classes.sistema import Sistema
+
 
 sistema = Sistema()
 sistema.limpar_terminal()
