@@ -1,5 +1,5 @@
 from datetime import datetime
-from sistema import Sistema
+from classes.sistema import Sistema
 
 sistema = Sistema()
 

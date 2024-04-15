@@ -21,3 +21,4 @@ class Sistema():
                 # "Sistema operacional não reconhecido"
                 print("Sistema operacional não reconhecido")
                 limpar_terminal = os.system('clear')
+        return limpar_terminal
