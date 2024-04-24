@@ -1,6 +1,7 @@
-from classes.operacoes import Operacoes
 from classes.sistema import Sistema
+from classes.conta import Conta
 
+conta = Conta()
 sistema = Sistema()
 sistema.limpar_terminal()
 
@@ -13,46 +14,32 @@ menu = """
 
 => """
 
-conta = {
-    'saldo': 0.0,
-    'LIMITE_SAQUE': 500.0,
-    'extrato': [],
-    'numero_saques': 0,
-    'LIMITE_SAQUES': 3
-}
 continuar_operando = True
 
 while continuar_operando:
 
     escolha_operacao = input(menu).upper()
-    operacoes = Operacoes(escolha_operacao, conta)
 
     match escolha_operacao:
             
         case "D":
             sistema.limpar_terminal()
-            print("___Depósito___")
-            operacoes.operacao_deposito()
-            conta["saldo"] = operacoes.dados_conta["saldo"]
-            
-
-            continuar_operando = operacoes.continuar_operando()
-            
-            
+            conta.operacao_deposito()
+            continuar_operando = conta.operar
             
         case "S":
             sistema.limpar_terminal()
-            print("___Saque___")
-            operacoes.operacao_sacar()
-            conta["saldo"] = operacoes.dados_conta["saldo"]
-
-            continuar_operando = operacoes.continuar_operando()
+            conta.operacao_sacar()
+            continuar_operando = conta.operar
 
         case "E":
-            print("Extrato")
-            print()
+            sistema.limpar_terminal()
+            conta.operacao_extrato()
+            continuar_operando = conta.operar
+            
         case "Q":
             print("Sair")
             break
         case _:
             print("Opção inválida, por favor selecione novamente a operação desejada.")
+    
