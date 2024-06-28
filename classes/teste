@@ -1,0 +1,50 @@
+conta1 = {
+        "numero_conta": "12345",
+        "titular": "João",
+        "saldo": 1000.0
+    }
+
+conta2 = ["12345", "João", 1000.0]
+    
+contas = [
+    {
+        "numero_conta": "12345",
+        "titular": "João",
+        "saldo": 1000.0
+    },
+    {
+        "numero_conta": "67890",
+        "titular": "Maria",
+        "saldo": 2000.0
+    },
+    {
+        "numero_conta": "54324",
+        "titular": "José",
+        "saldo": 1500.1
+    },
+    {
+        "numero_conta": "54321",
+        "titular": "José",
+        "saldo": 1500.0
+    }
+]
+
+def index_dicionario(chave, valor, lista):
+        index = 0
+        for i in lista:
+            buscador = i.get(f'{chave}')
+            if buscador == valor:
+                break
+            else:
+                index+=1
+        return index
+            
+index = index_dicionario('numero_conta', '54324', contas)
+print(contas[index])
+print(index)
+
+a = {'numero_conta': '50000', 'titular': 'Kevyn', 'saldo': 1500.1}
+contas[index] = a
+
+print(contas[index])
+print(index)
